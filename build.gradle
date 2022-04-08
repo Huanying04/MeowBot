@@ -1,0 +1,57 @@
+plugins {
+    id 'java'
+    id 'org.jetbrains.kotlin.jvm' version '1.6.20'
+    id("com.github.johnrengelman.shadow") version "7.1.2"
+}
+
+group 'net.nekomura'
+version '1.0.0'
+
+repositories {
+    mavenCentral()
+    maven{
+        url "https://maven.IceCreamQAQ.com/repository/maven-public/"
+    }
+    maven {
+        url 'https://jitpack.io'
+    }
+}
+
+dependencies {
+    //implementation group: 'com.IceCreamQAQ', name: 'YuQ', version: '0.1.0.0-DEV27'
+    //implementation group: 'com.IceCreamQAQ', name: 'Yu-Core', version: '0.2.0.0-DEV20'
+    implementation group: 'net.mamoe', name: 'mirai-core-api', version: '2.9.1'
+    implementation group: 'com.IceCreamQAQ.YuQ', name: 'YuQ-Mirai', version: '0.1.0.0-DEV22'
+    //implementation group: 'com.IceCreamQAQ.YuQ', name: 'YuQ-ArtQQ', version: '0.1.0.0-DEV11'
+    //implementation group: 'com.IceCreamQAQ.Yu', name: 'Yu-DB', version: '0.0.2.0-DEV17'
+    //implementation group: 'com.IceCreamQAQ.Yu', name: 'WebCore', version: '0.0.2.0-DEV23'
+
+    implementation group: 'org.json', name: 'json', version: '20220320'
+    implementation "com.github.hiking93:grapheme-splitter-lite:0.0.1"
+
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.0'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.7.0'
+}
+
+test {
+    useJUnitPlatform()
+}
+
+compileKotlin {
+    kotlinOptions.jvmTarget = "1.8"
+}
+compileTestKotlin {
+    kotlinOptions.jvmTarget = "1.8"
+}
+
+jar {
+    manifest {
+        attributes 'Main-Class': 'net.nekomura.Start'
+    }
+}
+
+compileJava.options.encoding = 'UTF-8'
+
+tasks.withType(JavaCompile) {
+    options.encoding = 'UTF-8'
+}

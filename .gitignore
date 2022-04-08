@@ -1,0 +1,11 @@
+# Project exclude paths
+/.gradle/
+/.idea/
+/build/
+/build/classes/java/main/
+/log/
+/gradle/
+/tmp/
+/userdata/
+
+device_3338677907.json
